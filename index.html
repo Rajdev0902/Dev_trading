@@ -1,121 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DEV TRADING | Grocery & General Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {margin:0;font-family:Poppins,Arial,sans-serif;background:#f4f8f4;color:#222}
-    header {background:#1f7a4d;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-    header h1 {margin:0;font-size:22px}
-    nav a {color:#fff;margin-left:16px;text-decoration:none;font-weight:500}
-    .hero {background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1542838132-92c53300491e');background-size:cover;background-position:center;color:#fff;text-align:center;padding:110px 20px}
-    .hero h2 {font-size:38px;margin-bottom:12px}
-    .hero p {font-size:18px;margin-bottom:20px}
-    .btn {display:inline-block;background:#ff8c00;color:#fff;padding:12px 22px;border-radius:6px;text-decoration:none;margin:6px;font-weight:600}
-    section {padding:70px 20px;max-width:1150px;margin:auto}
-    h3 {text-align:center;margin-bottom:35px;color:#1f7a4d;font-size:28px}
-    .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-    .card {background:#fff;border-radius:12px;padding:22px;text-align:center;box-shadow:0 6px 14px rgba(0,0,0,.08);transition:.25s}
-    .card:hover {transform:translateY(-6px)}
-    .card img {width:70px;margin-bottom:12px}
-    .why li {margin:12px 0;font-size:17px}
-    footer {background:#1f7a4d;color:#fff;text-align:center;padding:22px}
-    .whatsapp {position:fixed;bottom:18px;right:18px;background:#25D366;color:#fff;padding:16px;border-radius:50%;font-size:22px;text-decoration:none}
-    .map iframe {width:100%;height:320px;border:0;border-radius:10px}
-    .form {max-width:600px;margin:auto}
-    .form input,.form textarea {width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #ccc}
-    .lang {text-align:center;margin-top:20px}
-    .lang button {margin:5px;padding:8px 14px;border:none;border-radius:4px;background:#1f7a4d;color:#fff;cursor:pointer}
-  </style>
-  <script>
-    function setLang(lang){
-      document.querySelectorAll('[data-en]').forEach(el=>{
-        el.innerText = el.getAttribute(lang==='hi'?'data-hi':'data-en');
-      });
-    }
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DEV TRADING | Grocery & General Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Poppins,Arial;background:#f4f8f4;color:#222}
+header{background:#1f7a4d;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+header h1{margin:0;font-size:22px}
+nav a{color:#fff;margin-left:16px;text-decoration:none;font-weight:500}
+.hero{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1542838132-92c53300491e');background-size:cover;background-position:center;color:#fff;text-align:center;padding:110px 20px}
+.hero h2{font-size:38px;margin-bottom:12px}
+.hero p{font-size:18px;margin-bottom:20px}
+.btn{display:inline-block;background:#ff8c00;color:#fff;padding:12px 22px;border-radius:6px;text-decoration:none;margin:6px;font-weight:600;border:none;cursor:pointer}
+section{padding:70px 20px;max-width:1150px;margin:auto}
+h3{text-align:center;margin-bottom:35px;color:#1f7a4d;font-size:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.card{background:#fff;border-radius:12px;padding:22px;text-align:center;box-shadow:0 6px 14px rgba(0,0,0,.08);transition:.25s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100px;height:100px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+footer{background:#1f7a4d;color:#fff;text-align:center;padding:22px}
+.whatsapp{position:fixed;bottom:18px;right:18px;background:#25D366;color:#fff;padding:16px;border-radius:50%;font-size:22px;text-decoration:none}
+.map iframe{width:100%;height:320px;border:0;border-radius:10px}
+.form{max-width:600px;margin:auto}
+.form input,.form textarea{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #ccc}
+.lang{text-align:center;margin-top:20px}
+.lang button{margin:5px;padding:8px 14px;border:none;border-radius:4px;background:#1f7a4d;color:#fff;cursor:pointer}
+.cart{position:fixed;top:90px;right:10px;background:#fff;border-radius:10px;padding:14px;width:260px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.cart-item{display:flex;justify-content:space-between;font-size:14px;margin:4px 0}
+.admin{background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+</style>
+<script>
+function setLang(lang){
+ document.querySelectorAll('[data-en]').forEach(el=>{
+  el.innerText = el.getAttribute(lang==='hi'?'data-hi':'data-en');
+ });
+}
+
+let products=[
+{name:"Atta",price:350,img:"https://images.unsplash.com/photo-1604908176997-4319c6e6a3b5"},
+{name:"Rice",price:500,img:"https://images.unsplash.com/photo-1586201375761-83865001e31c"},
+{name:"Oil",price:180,img:"https://images.unsplash.com/photo-1615485737651-9c1f1a89d5d4"},
+{name:"Biscuits",price:30,img:"https://images.unsplash.com/photo-1608198093002-ad4e005484ec"},
+{name:"Milk",price:60,img:"https://images.unsplash.com/photo-1580910051074-3eb694886505"}
+];
+let cart=[];
+
+function renderProducts(){
+ let grid=document.getElementById("productGrid");
+ grid.innerHTML="";
+ products.forEach((p,i)=>{
+  let d=document.createElement("div");
+  d.className="card";
+  d.innerHTML=`<img src="${p.img}"><h4>${p.name}</h4><p>₹${p.price}</p><button class='btn' onclick='addCart(${i})'>Add</button>`;
+  grid.appendChild(d);
+ });
+}
+
+function addCart(i){cart.push(products[i]);renderCart();}
+
+function renderCart(){
+ let c=document.getElementById("cartItems");
+ c.innerHTML="";
+ let total=0;
+ cart.forEach(p=>{total+=p.price;c.innerHTML+=`<div class='cart-item'><span>${p.name}</span><span>₹${p.price}</span></div>`});
+ document.getElementById("total").innerText="₹"+total;
+}
+
+function sendWhatsApp(){
+ let text="DEV TRADING Order:%0A";
+ cart.forEach(p=>text+=p.name+" - ₹"+p.price+"%0A");
+ window.open("https://wa.me/919005495207?text="+text);
+}
+
+function addProduct(){
+ let n=document.getElementById("pname").value;
+ let pr=document.getElementById("pprice").value;
+ let im=document.getElementById("pimg").value;
+ products.push({name:n,price:pr,img:im});
+ renderProducts();
+}
+
+window.onload=renderProducts;
+</script>
 </head>
 <body>
 
 <header>
-  <h1>DEV TRADING</h1>
-  <nav>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<h1>DEV TRADING</h1>
+<nav>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+<a href="#admin">Admin</a>
+</nav>
 </header>
 
 <section class="hero">
-  <h2 data-en="All Your Daily Essentials in One Place" data-hi="आपकी सभी दैनिक जरूरतें एक ही जगह">All Your Daily Essentials in One Place</h2>
-  <p data-en="Fresh groceries and household items available near you" data-hi="ताज़ा किराना और घरेलू सामान आपके पास उपलब्ध">Fresh groceries and household items available near you</p>
-  <a class="btn" href="tel:9000000000">Call Now</a>
-  <a class="btn" href="https://wa.me/919000000000">Order on WhatsApp</a>
-  <div class="lang">
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('hi')">हिन्दी</button>
-  </div>
+<h2 data-en="All Your Daily Essentials in One Place" data-hi="आपकी सभी दैनिक जरूरतें एक ही जगह">All Your Daily Essentials in One Place</h2>
+<p data-en="Fresh groceries and household items available near you" data-hi="ताज़ा किराना और घरेलू सामान आपके पास उपलब्ध">Fresh groceries and household items available near you</p>
+<a class="btn" href="tel:9005495207">Call Now</a>
+<a class="btn" href="https://wa.me/919005495207">Order on WhatsApp</a>
+<div class="lang">
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('hi')">हिन्दी</button>
+</div>
 </section>
 
 <section id="products">
-  <h3 data-en="Our Products" data-hi="हमारे उत्पाद">Our Products</h3>
-  <div class="grid">
-    <div class="card"><img src="https://img.icons8.com/color/96/rice-bowl.png"><h4>Atta & Rice</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/lentils.png"><h4>Pulses & Spices</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/cooking-oil.png"><h4>Oil & Ghee</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/biscuit.png"><h4>Snacks</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/milk-bottle.png"><h4>Dairy</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/toothpaste.png"><h4>Personal Care</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/cleaning.png"><h4>Household</h4></div>
-    <div class="card"><img src="https://img.icons8.com/color/96/shopping-basket.png"><h4>Daily Essentials</h4></div>
-  </div>
+<h3>Products</h3>
+<div id="productGrid" class="grid"></div>
 </section>
 
-<section id="about">
-  <h3 data-en="About DEV TRADING" data-hi="DEV TRADING के बारे में">About DEV TRADING</h3>
-  <p style="text-align:center;max-width:720px;margin:auto" data-en="DEV TRADING is a trusted neighborhood grocery store providing daily essentials at fair prices with friendly service and quick availability." data-hi="DEV TRADING एक विश्वसनीय स्थानीय किराना स्टोर है जो उचित मूल्य पर दैनिक जरूरतों का सामान और तेज सेवा प्रदान करता है।">
-    DEV TRADING is a trusted neighborhood grocery store providing daily essentials at fair prices with friendly service and quick availability.
-  </p>
-</section>
-
-<section>
-  <h3 data-en="Why Choose Us" data-hi="हम क्यों">Why Choose Us</h3>
-  <ul class="why" style="max-width:520px;margin:auto">
-    <li>Trusted local store</li>
-    <li>Fresh quality products</li>
-    <li>Affordable pricing</li>
-    <li>Quick service</li>
-    <li>Nearby convenience</li>
-  </ul>
-</section>
+<div class="cart">
+<h4>Cart</h4>
+<div id="cartItems"></div>
+<b>Total: <span id="total">₹0</span></b><br>
+<button class="btn" onclick="sendWhatsApp()">Order</button>
+</div>
 
 <section id="contact">
-  <h3 data-en="Contact & Location" data-hi="संपर्क और स्थान">Contact & Location</h3>
-  <p style="text-align:center">
-    <b>DEV TRADING</b><br>
-    Nearby General Store<br>
-    Phone: 9005495207<br>
-    Open: 7:00 AM – 10:00 PM Daily
-  </p>
-  <div class="map">
-    <iframe src="https://maps.google.com/maps?q=delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  </div>
+<h3>Contact & Location</h3>
+<p style="text-align:center">
+<b>DEV TRADING</b><br>
+Nearby General Store<br>
+Phone: 9005495207<br>
+Open: 7:00 AM – 10:00 PM Daily
+</p>
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
 </section>
 
-<section>
-  <h3 data-en="Send Order" data-hi="ऑर्डर भेजें">Send Order</h3>
-  <div class="form">
-    <input placeholder="Your Name">
-    <input placeholder="Phone Number">
-    <textarea placeholder="Your Grocery List"></textarea>
-    <a class="btn" href="https://wa.me/919005495207">Send on WhatsApp</a>
-  </div>
+<section id="admin">
+<h3>Admin Panel</h3>
+<div class="admin">
+<input id="pname" placeholder="Product name">
+<input id="pprice" placeholder="Price">
+<input id="pimg" placeholder="Image URL">
+<button class="btn" onclick="addProduct()">Add Product</button>
+</div>
 </section>
 
 <footer>
-  © 2026 DEV TRADING | All Rights Reserved
+© 2026 DEV TRADING | All Rights Reserved
 </footer>
 
 <a class="whatsapp" href="https://wa.me/919005495207">🟢</a>
